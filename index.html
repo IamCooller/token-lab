@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A 35B Mixture-of-Experts model on a 16 GB M4 MacBook Pro, its 16.1 GB of experts streamed from the SSD: where a token&#39;s time goes, what made it faster, and every idea tried, the failed ones included.">
+<meta name="description" content="A 35B model at up to 54.6 tok/s, and one with 75.5 GB of experts at almost 10 tok/s, on a 16 GB MacBook Pro: where a token&#39;s time goes, what made it faster, and every idea tried, the failed ones included.">
 <title>Big models on a small laptop</title>
 <link rel="canonical" href="https://iamcooller.github.io/token-lab/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Big models on a small laptop">
-<meta property="og:description" content="A 35B Mixture-of-Experts model on a 16 GB M4 MacBook Pro, its 16.1 GB of experts streamed from the SSD: where a token&#39;s time goes, what made it faster, and every idea tried, the failed ones included.">
+<meta property="og:description" content="A 35B model at up to 54.6 tok/s, and one with 75.5 GB of experts at almost 10 tok/s, on a 16 GB MacBook Pro: where a token&#39;s time goes, what made it faster, and every idea tried, the failed ones included.">
 <meta property="og:image" content="https://iamcooller.github.io/token-lab/og.png">
 <meta property="og:url" content="https://iamcooller.github.io/token-lab/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Headline results: 17-20 tok/s for Qwen3.6-35B-A3B on a 16 GB M4 MacBook Pro, with its experts streamed from the SSD.">
+<meta property="og:image:alt" content="Headline results: 54.6 tok/s on code for Qwen3.6-35B-A3B on a 16 GB M4 MacBook Pro, with its experts streamed from the SSD.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Big models on a small laptop">
-<meta name="twitter:description" content="A 35B Mixture-of-Experts model on a 16 GB M4 MacBook Pro, its 16.1 GB of experts streamed from the SSD: where a token&#39;s time goes, what made it faster, and every idea tried, the failed ones included.">
+<meta name="twitter:description" content="A 35B model at up to 54.6 tok/s, and one with 75.5 GB of experts at almost 10 tok/s, on a 16 GB MacBook Pro: where a token&#39;s time goes, what made it faster, and every idea tried, the failed ones included.">
 <meta name="twitter:image" content="https://iamcooller.github.io/token-lab/og.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1317'/%3E%3Crect x='6' y='8' width='20' height='4' rx='1' fill='%23f0b33a'/%3E%3Crect x='6' y='14' width='13' height='4' rx='1' fill='%233ec5dc'/%3E%3Crect x='6' y='20' width='8' height='4' rx='1' fill='%23ef63a9'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -451,7 +451,7 @@ footer{margin-top:56px;padding-top:14px;border-top:1px solid var(--rule);font-si
 <div class="wrap">
 <header class="top">
   <h1>Big models on a small laptop</h1>
-  <p class="subtitle">A 35B Mixture-of-Experts model with its experts streamed from SSD, on a 16 GB MacBook Pro.</p>
+  <p class="subtitle">A 35B model at up to 54.6 tok/s, and one with 75.5 GB of experts at almost 10 tok/s, on a 16 GB MacBook Pro. The experts are streamed from the SSD.</p>
   <div class="byline-row">
     <p class="byline">Illia Mokhov · M4 MacBook Pro, 16 GB · <span style="white-space:nowrap">updated 2026-10-19</span></p>
     <div class="top-links"><a href="#terms" class="terms-link">Terms</a><button class="btn theme-btn" id="theme-toggle" type="button" aria-label="Toggle light and dark theme">Theme</button></div>
@@ -460,19 +460,19 @@ footer{margin-top:56px;padding-top:14px;border-top:1px solid var(--rule);font-si
 
 <section class="hl" aria-label="Main results">
   <div class="hl-card">
-    <p class="hl-big">17-20 <small>tok/s</small></p>
-    <p class="hl-txt">Qwen3.6-35B-A3B on a 16 GB M4 MacBook Pro, though its experts alone take 16.1 GB.</p>
-    <p class="hl-cav"><span class="tag m">measured · M4</span> With a 21-slot expert cache (1.32 GB), prose and code; ≈ 25 tok/s with the default cache when RAM is free. <a href="#h-setups">Setups</a></p>
+    <p class="hl-big">54.6 <small>tok/s</small></p>
+    <p class="hl-txt">Qwen3.6-35B-A3B writing code on a 16 GB M4 MacBook Pro, though its experts alone take 16.1 GB.</p>
+    <p class="hl-cav"><span class="tag m">measured · M4</span> With a 6 GB expert cache, run-ahead and the draft head; ≈ 25 tok/s with the default cache when RAM is free. <a href="#h-setups">Setups</a></p>
   </div>
   <div class="hl-card">
     <p class="hl-big">75.5 GB</p>
-    <p class="hl-txt">of experts in <span class="nw">Qwen3.8-Flash-Next</span>, decoded at 9.7-9.9 tok/s on prose within an 8 GB memory budget.</p>
+    <p class="hl-txt">of experts, almost 5× the laptop&#39;s RAM, and <span class="nw">Qwen3.8-Flash-Next</span> still decodes at 9.7-9.9 tok/s on prose in 8 GB.</p>
     <p class="hl-cav"><span class="tag m">measured · M4</span> With an external SSD as well. <a href="#flash-next">Setup</a></p>
   </div>
   <div class="hl-card">
-    <p class="hl-big">5-8 <small>tok/s</small></p>
-    <p class="hl-txt">for llama.cpp on the same laptop: its GPU path runs out of memory here, so it decodes on the CPU.</p>
-    <p class="hl-cav"><span class="tag m">measured · M4</span> This engine in the same run: 14 tok/s. Not an equal test. <a href="#vs-llama">Details</a></p>
+    <p class="hl-big">4.9 GB</p>
+    <p class="hl-txt">of memory at peak for the 35B model decoding at 17-20 tok/s, under a third of the laptop&#39;s RAM.</p>
+    <p class="hl-cav"><span class="tag m">measured · M4</span> With a 21-slot expert cache (1.32 GB); the other experts are read from the SSD when picked. <a href="#h-setups">Setups</a></p>
   </div>
   <div class="hl-card">
     <p class="hl-big">Same tokens</p>
